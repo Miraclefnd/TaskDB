@@ -427,6 +427,7 @@
     <Content Include="Views\CRUD\UserList.cshtml" />
     <Content Include="Views\CRUD\UserDelete.cshtml" />
     <Content Include="Views\CRUD\UserEdit.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail_repeat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

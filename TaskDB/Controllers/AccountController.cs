@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Drawing.Imaging;
 using System.Globalization;
 using System.Linq;
@@ -9,10 +10,12 @@ using System.Web;
 using System.Web.Mvc;
 using Microsoft.Ajax.Utilities;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using SendGrid.Helpers.Mail;
 using TaskDB.Models;
 
 
@@ -85,7 +88,7 @@ namespace TaskDB.Controllers
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                         return RedirectToLocal(returnUrl);
                     }
-                    else
+                    else 
                     {
                         ModelState.AddModelError("", "Не подтвержден email.");
                     }
@@ -232,6 +235,28 @@ namespace TaskDB.Controllers
             var result = await UserManager.ConfirmEmailAsync(userId, code);
             return View(result.Succeeded ? "ConfirmEmail" : "Error");
         }
+        //[AllowAnonymous]
+        //public ActionResult ConfirmEmail_repeat()
+        //{
+        //    return View();
+        //}
+        //[HttpPost]
+        //[AllowAnonymous]
+        //public async Task<ActionResult> ConfirmEmail_repeat(ApplicationUser use)
+        //{
+        //    var context = new IdentityDbContext();
+        //    var user = context.Users.Where(u => u.Email == use.Email);
+            
+        //    //var find = context.Users.Find(userEmail.Email);
+        //    //var context= new IdentityUser(); 
+        //    if (use.EmailConfirmed==false)
+        //    {
+        //        return RedirectToAction("Login");
+
+        //    }
+
+        //    return View();
+        //}
 
         //
         // GET: /Account/ForgotPassword

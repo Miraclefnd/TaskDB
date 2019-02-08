@@ -45,9 +45,12 @@
                     @Html.ActionLink("Регистрация нового пользователя", "Register")
                 </p>
                 //Включите, когда будет включено подтверждение учетной записи для функции сброса пароля
-                    <p>
-                        @Html.ActionLink("Забыли пароль?", "ForgotPassword")
-                    </p>
+                <p>
+                    @Html.ActionLink("Забыли пароль?", "ForgotPassword")
+                </p>
+                <p>
+                    @Html.ActionLink("Не подтвержден Email?", "ConfirmEmail_repeat")
+                </p>
             }
         </section>
     </div>
